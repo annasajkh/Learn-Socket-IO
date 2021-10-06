@@ -41,22 +41,6 @@ function updateChat(text, socket=undefined) {
         }
       }
     });
-
-  }
-  else {
-    fs.readFile("/home/runner/Learn-Socket-IO/server/database/chat_history.txt", "utf8" , (err, data) => {
-      if (err) throw err;
-
-      let chunkData = data.split("\n");
-
-      if(chunkData.length >= 1500) {
-        chunkData = chunkData.slice((chunkData.length - 1) - 1000, chunkData.length - 1)
-
-        fs.writeFile("/home/runner/Learn-Socket-IO/server/database/chat_history.txt", chunkData.join("\n"), err => {
-          if (err) throw err;
-        });
-      }
-    });
   }
 }
 
